@@ -37,9 +37,50 @@ accordionHeaders.forEach(header => {
         });
 
         // Toggle current item
-        if (!isActive) {
-            item.classList.add('active');
+    });
+});
+
+// Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const navLinksItems = document.querySelectorAll('.nav-links a');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+}
+
+// Close mobile menu when a link is clicked
+navLinksItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (menuToggle) menuToggle.classList.remove('active');
+        if (navLinks) navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
+
+// Smooth Scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     });
 });
+
 
