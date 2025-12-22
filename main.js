@@ -37,8 +37,12 @@ accordionHeaders.forEach(header => {
         });
 
         // Toggle current item
+        if (!isActive) {
+            item.classList.add('active');
+        }
     });
 });
+
 
 // Mobile Menu Toggle
 const menuToggle = document.querySelector('.menu-toggle');
@@ -82,5 +86,43 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Contact Form AJAX Handler
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+            .then(() => {
+                // Success feedback
+                this.innerHTML = `
+                <div class="form-success reveal active" style="padding: 2rem; background: var(--glass); border: 1px solid var(--primary); border-radius: 12px;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Message Sent!</h3>
+                    <p>Thanks for reaching out! We'll be in touch with you shortly.</p>
+                </div>
+            `;
+            })
+            .catch((error) => {
+                console.error('Form submission error:', error);
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                alert('Oops! There was an error. Please try again or email us directly.');
+            });
+    });
+}
+
 
 
