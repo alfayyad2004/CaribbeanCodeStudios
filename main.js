@@ -35,6 +35,8 @@ if (form) {
         btn.disabled = true;
 
         const formData = new FormData(form);
+        formData.append('form-name', 'contact');
+
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application-x-www-form-urlencoded" },
