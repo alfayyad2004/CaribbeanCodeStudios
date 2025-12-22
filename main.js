@@ -33,12 +33,28 @@ if (form) {
         const originalText = btn.innerText;
         btn.innerText = 'Sending...';
         btn.disabled = true;
-        
-        setTimeout(() => {
-            btn.innerText = 'Request Sent! We\'ll be in touch.';
-            btn.style.backgroundColor = '#008f80';
-            form.reset();
-        }, 1500);
+
+        const formData = new FormData(form);
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application-x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+            .then(() => {
+                btn.innerText = 'Request Sent! We\'ll be in touch.';
+                btn.style.backgroundColor = '#008f80';
+                form.reset();
+            })
+            .catch((error) => {
+                console.error('Form submission error:', error);
+                btn.innerText = 'Error! Please try again.';
+                btn.disabled = false;
+                btn.style.backgroundColor = '#ff4b2b';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = '';
+                }, 3000);
+            });
     });
 }
 
@@ -48,12 +64,12 @@ accordionHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const item = header.parentElement;
         const isActive = item.classList.contains('active');
-        
+
         // Close all other items
         document.querySelectorAll('.accordion-item').forEach(otherItem => {
             otherItem.classList.remove('active');
         });
-        
+
         // Toggle current item
         if (!isActive) {
             item.classList.add('active');
