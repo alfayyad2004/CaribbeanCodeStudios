@@ -810,3 +810,81 @@ textarea:focus {
         padding: 0 1.5rem 1.25rem 1.5rem;
     }
 }
+
+/* Tech Stack Banner */
+.tech-stack-banner {
+    padding: 3rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+}
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 2rem;
+}
+
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    min-width: 100%;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 2rem));
+    }
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.tech-item:hover {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Pause animation on hover */
+.marquee:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .tech-stack-banner {
+        padding: 2rem 0;
+    }
+
+    .marquee-content {
+        animation-duration: 20s;
+    }
+
+    .tech-item {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
