@@ -24,42 +24,6 @@ const reveal = () => {
 window.addEventListener('scroll', reveal);
 reveal(); // Run on load
 
-// Form Handling (Visual Only)
-const form = document.querySelector('.contact-form');
-if (form) {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('button');
-        const originalText = btn.innerText;
-        btn.innerText = 'Sending...';
-        btn.disabled = true;
-
-        const formData = new FormData(form);
-        formData.append('form-name', 'contact');
-
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application-x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        })
-            .then(() => {
-                btn.innerText = 'Request Sent! We\'ll be in touch.';
-                btn.style.backgroundColor = '#008f80';
-                form.reset();
-            })
-            .catch((error) => {
-                console.error('Form submission error:', error);
-                btn.innerText = 'Error! Please try again.';
-                btn.disabled = false;
-                btn.style.backgroundColor = '#ff4b2b';
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.backgroundColor = '';
-                }, 3000);
-            });
-    });
-}
-
 // FAQ Accordion
 const accordionHeaders = document.querySelectorAll('.accordion-header');
 accordionHeaders.forEach(header => {
