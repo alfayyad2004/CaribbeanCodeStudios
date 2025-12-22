@@ -613,7 +613,7 @@ textarea:focus {
 }
 
 .coming-soon-tag::after {
-    content: "COMMING SOON";
+    content: "COMING SOON";
     position: absolute;
     top: 20px;
     right: -30px;
