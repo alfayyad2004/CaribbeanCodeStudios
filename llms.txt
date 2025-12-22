@@ -1,0 +1,21 @@
+# CaribbeanCodeStudios
+
+> High-performance, affordable web design and development in Trinidad and Tobago.
+
+## About
+CaribbeanCodeStudios specializes in modern web solutions for small businesses in T&T. We emphasize full website ownership, speed, and premium aesthetics using a modern tech stack (Netlify, Supabase, Google Gemini).
+
+## Services
+- **Managed Static Websites**: Professional one-time builds starting at TT$2,500.
+- **Digital Care Plans**: Optional monthly support at TT$250/mo.
+- **Advanced Platforms**: Custom dynamic systems and integrated platforms (Coming Soon).
+
+## Key Differentiators
+- **One-Day Website Build**: Optimized workflows for fast delivery in Trinidad.
+- **No Lock-In**: Customers own their code and assets.
+- **AI-Powered**: Utilizing Google Gemini and ChatGPT for advanced development.
+
+## Contact
+- Email: caribbeancodestudios@gmail.com
+- Location: Port of Spain, Trinidad & Tobago
+- Website: https://caribbeancodestudios.com
