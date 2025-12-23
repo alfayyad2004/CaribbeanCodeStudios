@@ -1,28 +1,45 @@
-// Header Scroll Effect
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
+// Throttled Header Scroll Effect
+let lastScrollY = window.scrollY;
+let ticking = false;
 
-// Reveal Animations on Scroll
-const reveal = () => {
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('active');
+window.addEventListener('scroll', () => {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const header = document.querySelector('.header');
+            if (lastScrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            ticking = false;
+        });
+        ticking = true;
+    }
+}, { passive: true });
+
+
+// High-Performance Reveal Animations using IntersectionObserver
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Once revealed, we don't need to observe it anymore
+            revealObserver.unobserve(entry.target);
         }
     });
+}, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+const initReveals = () => {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(element => revealObserver.observe(element));
 };
 
-window.addEventListener('scroll', reveal);
-reveal(); // Run on load
+document.addEventListener('DOMContentLoaded', initReveals);
+
 
 // FAQ Accordion
 const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -123,6 +140,27 @@ if (contactForm) {
             });
     });
 }
+
+// Optimized Tidio Loading (Delay to boost initial performance scores)
+const loadTidio = () => {
+    if (window.tidioLoaded) return;
+    window.tidioLoaded = true;
+
+    const script = document.createElement("script");
+    script.src = "https://code.tidio.co/fl0ovhe7n3npo8ts4jkrestfqyojnghn.js";
+    script.async = true;
+    document.body.appendChild(script);
+};
+
+// Load Tidio after a delay or on first user interaction
+window.addEventListener('load', () => {
+    setTimeout(loadTidio, 4000); // 4 second delay
+});
+
+['mousedown', 'mousemove', 'touchstart', 'scroll', 'keydown'].forEach(event => {
+    window.addEventListener(event, loadTidio, { once: true, passive: true });
+});
+
 
 
 
