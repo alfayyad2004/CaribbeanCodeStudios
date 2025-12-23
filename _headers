@@ -1,11 +1,10 @@
 /*
-  # High-Grade Content Security Policy (Hardenend)
-  # - script-src: We use 'strict-dynamic' + SHA-256 hash for main.js. 
-  #   This trusts main.js and everything it loads (like Tidio) without needing 'unsafe-inline' or brittle allowlists.
-  # - style-src: We allow 'unsafe-inline' ONLY for styles, as Tidio widget requires it for dynamic styling. 
-  #   All our own styles have been refactored into styles.css.
-  # - connect-src: Added Tidio's required API and WebSocket endpoints.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-UNMcI3F/5RV2tLAM9jWzYmU/FP2xETHPmEyESErRVoI=' 'strict-dynamic' https://code.tidio.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-ancestors 'none'; connect-src 'self' https://*.tidio.co wss://socket.tidio.co https://*.tidiochat.com; require-trusted-types-for 'script'; upgrade-insecure-requests;
+  # Robust Content Security Policy (Host-Based)
+  # Reverted 'strict-dynamic' to ensure 'self' allows main.js to execute.
+  # - script-src: 'self' is required for main.js. Tidio domains explicitly whitelisted. 'unsafe-inline' removed.
+  # - style-src: 'unsafe-inline' kept for critical 3rd-party widget styling (Tidio/Google Fonts).
+  # - connect-src: Explicit Tidio endpoints.
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://code.tidio.co https://widget-v4.tidiochat.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-ancestors 'none'; connect-src 'self' https://*.tidio.co wss://socket.tidio.co https://*.tidiochat.com; require-trusted-types-for 'script'; upgrade-insecure-requests;
 
   # Strict-Transport-Security (HSTS)
   # Enforce HTTPS for 1 year, including subdomains, and allow preloading in browsers.
@@ -18,7 +17,7 @@
   # Prevent MIME-type sniffing
   X-Content-Type-Options: nosniff
   
-  # Prevent Clickjacking (Same-origin framing allowed if needed, but DENY is safer)
+  # Prevent Clickjacking
   X-Frame-Options: DENY
   
   # Referrer Policy
