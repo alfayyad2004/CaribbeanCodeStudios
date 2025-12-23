@@ -1,12 +1,11 @@
 /*
-  # Content Security Policy (Basic but Effective)
-  # - default-src 'self': Only allow content from your own domain by default
-  # - script-src 'self' 'unsafe-inline' https://code.tidio.co: Allow local scripts, inline scripts (needed for reveal/menu), and Tidio
-  # - style-src 'self' 'unsafe-inline' https://fonts.googleapis.com: Allow local styles, inline styles, and Google Fonts
-  # - font-src 'self' https://fonts.gstatic.com: Allow Google Fonts
-  # - img-src 'self' data: https: Allow local images, data URIs, and external images via HTTPS
-  # - frame-ancestors 'none': Prevent clickjacking (same as X-Frame-Options: DENY)
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://code.tidio.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-ancestors 'none'; require-trusted-types-for 'script'; upgrade-insecure-requests;
+  # High-Grade Content Security Policy (Hardenend)
+  # - script-src: We use 'strict-dynamic' + SHA-256 hash for main.js. 
+  #   This trusts main.js and everything it loads (like Tidio) without needing 'unsafe-inline' or brittle allowlists.
+  # - style-src: We allow 'unsafe-inline' ONLY for styles, as Tidio widget requires it for dynamic styling. 
+  #   All our own styles have been refactored into styles.css.
+  # - connect-src: Added Tidio's required API and WebSocket endpoints.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-UNMcI3F/5RV2tLAM9jWzYmU/FP2xETHPmEyESErRVoI=' 'strict-dynamic' https://code.tidio.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-ancestors 'none'; connect-src 'self' https://*.tidio.co wss://socket.tidio.co https://*.tidiochat.com; require-trusted-types-for 'script'; upgrade-insecure-requests;
 
   # Strict-Transport-Security (HSTS)
   # Enforce HTTPS for 1 year, including subdomains, and allow preloading in browsers.
@@ -19,8 +18,8 @@
   # Prevent MIME-type sniffing
   X-Content-Type-Options: nosniff
   
-  # Legacy Frame Control (for older browsers)
+  # Prevent Clickjacking (Same-origin framing allowed if needed, but DENY is safer)
   X-Frame-Options: DENY
   
-  # Control referrer information
+  # Referrer Policy
   Referrer-Policy: strict-origin-when-cross-origin

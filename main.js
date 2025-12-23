@@ -126,8 +126,8 @@ if (contactForm) {
             .then(() => {
                 // Success feedback
                 this.innerHTML = `
-                <div class="form-success reveal active" style="padding: 2rem; background: var(--glass); border: 1px solid var(--primary); border-radius: 12px;">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Message Sent!</h3>
+                <div class="form-success reveal active form-success-box">
+                    <h3 class="form-success-title">Message Sent!</h3>
                     <p>Thanks for reaching out! We'll be in touch with you shortly.</p>
                 </div>
             `;
