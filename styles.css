@@ -635,7 +635,7 @@ body.js-loaded .reveal {
     will-change: transform, opacity;
 }
 
-.reveal.active {
+body.js-loaded .reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
