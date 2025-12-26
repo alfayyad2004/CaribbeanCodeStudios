@@ -18,6 +18,50 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../styles.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://caribbeancodestudios.com/"
+          },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Restaurant Website Design Trinidad",
+            "item": "https://caribbeancodestudios.com/websites/restaurants.html"
+          }]
+        },
+        {
+          "@type": "Service",
+          "name": "Restaurant Website Design Trinidad",
+          "provider": {
+            "@type": "ProfessionalService",
+            "name": "CaribbeanCodeStudios",
+            "image": "https://caribbeancodestudios.com/caribbean-code-studios-trinidad-web-design.png",
+            "telephone": "+18683256906",
+            "priceRange": "TT$2500 - TT$10000",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Port of Spain",
+              "addressLocality": "Port of Spain",
+              "addressRegion": "Trinidad",
+              "postalCode": "00000",
+              "addressCountry": "TT"
+            }
+          },
+          "areaServed": "Trinidad and Tobago",
+          "description": "Professional website design for restaurants and food businesses in Trinidad & Tobago. Fast-loading menus."
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -168,4 +212,3 @@
 </body>
 
 </html>
-

@@ -1,3 +1,6 @@
+// Progressive Enhancement: Enable animations only when JS executes
+document.body.classList.add('js-loaded');
+
 // Throttled Header Scroll Effect
 let lastScrollY = window.scrollY;
 let ticking = false;

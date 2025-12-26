@@ -627,13 +627,13 @@ textarea:focus {
 }
 
 /* Animations */
-.reveal {
+/* Progressive Enhancement: Only hide content if JS is actually running */
+body.js-loaded .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
     will-change: transform, opacity;
 }
-
 
 .reveal.active {
     opacity: 1;
