@@ -51,9 +51,26 @@
 </head>
 
 <body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-text">COCOA</div>
+        <div class="loader-line"></div>
+    </div>
+
     <!-- Custom Cursor -->
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Floating Cart -->
+    <div class="floating-cart" data-hover>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-notification">Added to your selection</div>
 
     <div class="demo-banner">
         <p>Interactive Demo Version | <a href="../projects.html" data-hover>Return to Portfolio</a></p>
@@ -65,7 +82,8 @@
             <ul class="nav-links">
                 <li><a href="#shop" data-hover>Shop</a></li>
                 <li><a href="#origin" data-hover>Our Origin</a></li>
-                <li><a href="#checkout" class="btn-book" data-hover><i class="fas fa-shopping-bag"></i> Cart (0)</a>
+                <li><a href="#checkout" class="btn-book" data-hover><i class="fas fa-shopping-bag"></i> Cart (<span
+                            class="cart-count">0</span>)</a>
                 </li>
             </ul>
         </div>

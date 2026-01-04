@@ -43,6 +43,12 @@
 </head>
 
 <body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-text">TOBAGO</div>
+        <div class="loader-line"></div>
+    </div>
+
     <!-- Custom Cursor -->
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
@@ -119,7 +125,7 @@
             <div class="reservation-box" data-scroll>
                 <h2>Secure Your Dates</h2>
                 <p>Limited availability for the upcoming peak season.</p>
-                <form class="booking-form">
+                <form class="booking-form" id="bookingForm">
                     <div class="form-row">
                         <div class="form-group">
                             <select data-hover>
@@ -137,6 +143,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Availability Requested!</h3>
+            <p>We'll check the dates and get back to you within 24 hours.</p>
+            <button class="btn-primary" id="closeModal" data-hover>Close</button>
+        </div>
+    </div>
 
     <footer class="main-footer">
         <div class="container">

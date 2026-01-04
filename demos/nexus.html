@@ -52,6 +52,12 @@
 </head>
 
 <body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-text">NEXUS</div>
+        <div class="loader-line"></div>
+    </div>
+
     <!-- Custom Cursor -->
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
@@ -155,7 +161,7 @@
             <div class="reservation-box" data-scroll>
                 <h2>Private Consultation</h2>
                 <p>Schedule a confidential session with our senior partners.</p>
-                <form class="booking-form">
+                <form class="booking-form" id="bookingForm">
                     <div class="form-row">
                         <div class="form-group">
                             <select data-hover>
@@ -173,6 +179,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Consultation Requested!</h3>
+            <p>Our senior partners will review your request shortly.</p>
+            <button class="btn-primary" id="closeModal" data-hover>Close</button>
+        </div>
+    </div>
 
     <footer class="main-footer">
         <div class="container">

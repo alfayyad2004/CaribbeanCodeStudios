@@ -1,35 +1,44 @@
 // Register GSAP Plugins
-gsap.registerPlugin(ScrollTrigger);
+if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 const cursorDot = document.querySelector('[data-cursor-dot]');
 const cursorOutline = document.querySelector('[data-cursor-outline]');
 const hoverElements = document.querySelectorAll('[data-hover]');
 const nav = document.querySelector('.savor-nav');
 
+// Debug check
+console.log('CCS Demo Script Initialized');
+
 // 0. Nav Scroll Effect (Glassmorphism)
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
+if (nav) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+}
 
 // 1. Custom Cursor Logic
-window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
+if (cursorDot && cursorOutline) {
+    window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
 
-    // Dot follows precisely
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
+        // Dot follows precisely
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
 
-    // Outline follows with smooth delay
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 400, fill: "forwards" });
-});
+        // Outline follows with smooth delay
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 400, fill: "forwards" });
+    });
+}
 
 // Hover effects for cursor
 hoverElements.forEach(el => {
@@ -38,117 +47,182 @@ hoverElements.forEach(el => {
 });
 
 
-// 2. Preloader (Refined)
-window.addEventListener('load', () => {
+// 2. Preloader (Robust Fail-safe)
+let revealed = false;
+function revealPage() {
+    if (revealed) return; // Already revealed
+    revealed = true;
+    console.log('Revealing page...');
+
+    if (typeof gsap === 'undefined') {
+        console.error('GSAP not loaded! Skipping preloader animation.');
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loading');
+        const loader = document.querySelector('.preloader');
+        if (loader) loader.style.display = 'none'; // Hide preloader if GSAP is missing
+        return;
+    }
+
     const tl = gsap.timeline();
 
-    tl.to('.loader-line', {
-        width: '100%',
-        duration: 1.2,
-        ease: 'power2.inOut'
-    })
-        .to('.loader-text', {
-            y: -30,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.in'
+    // Check if preloader elements exist
+    const preloaderElement = document.querySelector('.preloader');
+    const loaderLine = document.querySelector('.loader-line');
+    const loaderText = document.querySelector('.loader-text');
+
+    if (preloaderElement && loaderLine && loaderText) {
+        tl.to(loaderLine, {
+            width: '100%',
+            duration: 0.8,
+            ease: 'power2.inOut'
         })
-        .to('.preloader', {
-            yPercent: -100,
-            duration: 1.2,
-            ease: 'expo.inOut',
-            onComplete: () => document.body.classList.add('loaded')
-        })
-        // 3. Hero Animations
-        .fromTo('.hero-content',
+            .to(loaderText, {
+                y: -30,
+                opacity: 0,
+                duration: 0.4,
+                ease: 'power2.in'
+            })
+            .to(preloaderElement, {
+                yPercent: -100,
+                duration: 1,
+                ease: 'expo.inOut',
+                onComplete: () => {
+                    document.body.classList.add('loaded');
+                    document.body.classList.remove('loading');
+                }
+            });
+    } else {
+        // If preloader elements are missing, just mark as loaded
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loading');
+        console.warn('Preloader elements not found. Skipping preloader animation.');
+    }
+
+    // 3. Hero Animations (only if elements exist)
+    const heroContent = document.querySelector('.hero-content');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+
+    if (heroContent) {
+        tl.fromTo(heroContent,
             { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out' }
-            , "-=0.5")
-        .fromTo('.scroll-indicator',
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }
+            , preloaderElement ? "-=0.3" : 0); // Adjust position based on whether preloader ran
+    }
+
+    if (scrollIndicator) {
+        tl.fromTo(scrollIndicator,
             { opacity: 0 },
-            { opacity: 1, duration: 1 }
-            , "-=1");
-});
+            { opacity: 1, duration: 0.8 }
+            , "-=0.8");
+    }
+}
+
+// Trigger on load
+window.addEventListener('load', revealPage);
+
+// Fail-safe: Force reveal after 4 seconds
+setTimeout(revealPage, 4000);
 
 
 // 4. Scroll Animations (General)
-gsap.utils.toArray('[data-scroll]').forEach((element, i) => {
-    gsap.from(element, {
-        scrollTrigger: {
-            trigger: element,
-            start: 'top 80%',
-            toggleActions: "play none none reverse"
-        },
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+if (typeof gsap !== 'undefined') {
+    gsap.utils.toArray('[data-scroll]').forEach((element, i) => {
+        gsap.from(element, {
+            scrollTrigger: {
+                trigger: element,
+                start: 'top 85%', // Slightly adjusted start
+                toggleActions: "play none none reverse"
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
     });
-});
 
-// 5. Story Image Reveal
-gsap.to('.img-reveal', {
-    scrollTrigger: {
-        trigger: '.story-section',
-        start: 'top 60%',
-    },
-    height: '0%',
-    duration: 1.8,
-    ease: 'expo.out'
-});
-
+    // 5. Story Image Reveal
+    const imgReveal = document.querySelector('.img-reveal');
+    const storySection = document.querySelector('.story-section');
+    if (imgReveal && storySection) {
+        gsap.to(imgReveal, {
+            scrollTrigger: {
+                trigger: storySection,
+                start: 'top 70%', // Slightly adjusted start
+            },
+            height: '0%',
+            duration: 1.8,
+            ease: 'expo.out'
+        });
+    }
+}
 
 // 6. Menu Filtering
 const filterBtns = document.querySelectorAll('.filter-btn');
 const menuItems = document.querySelectorAll('.menu-item');
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-        const category = btn.getAttribute('data-filter');
+            const category = btn.getAttribute('data-filter');
 
-        menuItems.forEach(item => {
-            if (category === 'all' || item.getAttribute('data-category') === category) {
-                gsap.to(item, { display: 'block', opacity: 1, scale: 1, duration: 0.5 });
-            } else {
-                gsap.to(item, { opacity: 0, scale: 0.9, duration: 0.3, onComplete: () => item.style.display = 'none' });
-            }
+            menuItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block'; // Ensure it's visible before animating
+                    gsap.fromTo(item,
+                        { opacity: 0, scale: 0.9 },
+                        { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
+                    );
+                } else {
+                    gsap.to(item, {
+                        opacity: 0, scale: 0.9, duration: 0.3, ease: 'power2.in',
+                        onComplete: () => item.style.display = 'none'
+                    });
+                }
+            });
         });
     });
-});
+}
 
 
 // 7. Cart & Toast
-let cartCount = 0;
+let currentCartCount = 0; // Renamed to avoid conflict with new 'count'
 const cartDisplay = document.querySelector('.cart-count');
 const addBtns = document.querySelectorAll('.btn-add');
+const floatingCart = document.querySelector('.floating-cart'); // Added for jiggle animation
 const toast = document.querySelector('.toast-notification');
 
-addBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        cartCount++;
-        cartDisplay.textContent = cartCount;
+if (addBtns.length > 0 && cartDisplay) { // Check if necessary elements exist
+    addBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentCartCount++;
+            cartDisplay.textContent = currentCartCount;
 
-        // Jiggle animation on cart
-        gsap.fromTo('.floating-cart',
-            { rotation: -15, scale: 1.3 },
-            { rotation: 0, scale: 1, duration: 0.6, ease: 'elastic.out(1, 0.4)' }
-        );
+            // Jiggle animation on cart
+            if (floatingCart && typeof gsap !== 'undefined') {
+                gsap.fromTo(floatingCart,
+                    { rotation: -15, scale: 1.3 },
+                    { rotation: 0, scale: 1, duration: 0.6, ease: 'elastic.out(1, 0.4)' }
+                );
+            }
 
-        // Show Toast
-        toast.classList.add('active');
-        setTimeout(() => toast.classList.remove('active'), 2500);
+            // Show Toast
+            if (toast) {
+                toast.classList.add('show'); // Changed 'active' to 'show' as per instruction snippet
+                setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+        });
     });
-});
+}
 
 // 8. Form Logic
 const bookingForm = document.getElementById('bookingForm');
 const modal = document.getElementById('successModal');
 const closeModal = document.getElementById('closeModal');
 
-if (bookingForm) {
+if (bookingForm && modal) { // Ensure both form and modal exist
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
         modal.classList.add('active');
