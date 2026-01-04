@@ -216,7 +216,62 @@
         </section>
 
 
+        <!-- Featured Work Section -->
+        <section id="work" class="featured-work containerSection">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="reveal">Featured <span class="text-gradient">Work</span></h2>
+                    <p class="reveal text-muted narrow mx-auto">We build websites that don't just look good—they
+                        perform.
+                        See our latest projects for Caribbean businesses.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: Savor -->
+                    <div class="project-card reveal" data-tilt>
+                        <div class="project-image-wrapper">
+                            <img src="savor_trinidad.png" alt="Savor Trinidad Restaurant" class="project-image">
+                            <div class="project-overlay">
+                                <a href="demos/savor.html" class="btn btn-primary">Try Interactive Demo</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">Restaurant</span>
+                                <span class="tag">Luxury</span>
+                            </div>
+                            <h3>Savor Trinidad</h3>
+                            <p>Premium digital menu & reservation system for upscale dining.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Nexus Legal -->
+                    <div class="project-card reveal" data-tilt>
+                        <div class="project-image-wrapper">
+                            <img src="nexus_legal.png" alt="Nexus Legal Chambers" class="project-image">
+                            <div class="project-overlay">
+                                <a href="demos/nexus.html" class="btn btn-primary">Try Interactive Demo</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">Corporate</span>
+                                <span class="tag">Law Firm</span>
+                            </div>
+                            <h3>Nexus Legal Chambers</h3>
+                            <p>Authoritative corporate presence for a leading Port of Spain firm.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="projects.html" class="btn btn-secondary reveal">View All Projects</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Pricing Section -->
+
         <section id="pricing" class="pricing containerSection">
             <div class="container text-center">
                 <h2 class="reveal">Affordable Web Design Trinidad - Simple Pricing</h2>
@@ -717,6 +772,7 @@
                     Reach
                     out to us at <strong>caribbeancodestudios@gmail.com</strong> or fill out the form below.</p>
                 <form class="contact-form reveal" name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>

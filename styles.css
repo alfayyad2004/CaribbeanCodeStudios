@@ -595,6 +595,12 @@ h3 {
 }
 
 /* Form */
+@media (max-width: 768px) {
+    .contact.containerSection {
+        padding-top: 10rem;
+    }
+}
+
 .contact-form {
     background: var(--surface);
     padding: 3rem;

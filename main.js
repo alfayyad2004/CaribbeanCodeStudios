@@ -41,6 +41,8 @@ const initReveals = () => {
     reveals.forEach(element => revealObserver.observe(element));
 };
 
+// Initialize
+initReveals();
 document.addEventListener('DOMContentLoaded', initReveals);
 
 
@@ -126,14 +128,18 @@ if (contactForm) {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString(),
         })
-            .then(() => {
-                // Success feedback
-                this.innerHTML = `
-                <div class="form-success reveal active form-success-box">
-                    <h3 class="form-success-title">Message Sent!</h3>
-                    <p>Thanks for reaching out! We'll be in touch with you shortly.</p>
-                </div>
-            `;
+            .then(response => {
+                if (response.ok) {
+                    // Success feedback
+                    this.innerHTML = `
+                        <div class="form-success reveal active form-success-box">
+                            <h3 class="form-success-title">Message Sent!</h3>
+                            <p>Thanks for reaching out! We'll be in touch with you shortly.</p>
+                        </div>
+                    `;
+                } else {
+                    throw new Error('Form submission failed');
+                }
             })
             .catch((error) => {
                 console.error('Form submission error:', error);
