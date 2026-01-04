@@ -165,5 +165,34 @@ window.addEventListener('load', () => {
 });
 
 
+// 3D Tilt Effect for Project Cards
+const cards = document.querySelectorAll('.project-card[data-tilt]');
+
+cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Calculate center
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // Calculate rotation (max 10 degrees)
+        const rotateX = ((y - centerY) / centerY) * -10;
+        const rotateY = ((x - centerX) / centerX) * 10;
+
+        card.style.setProperty('--rotateX', `${rotateX}deg`);
+        card.style.setProperty('--rotateY', `${rotateY}deg`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+        // Reset on leave
+        card.style.setProperty('--rotateX', '0deg');
+        card.style.setProperty('--rotateY', '0deg');
+    });
+});
+
+
 
 

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Legal Chambers | Premium Corporate Law Port of Spain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --nexus-navy: #0A1A30;
+            --nexus-gold: #D4AF37;
+            --dark: #05070A;
+            --panel: #111B29;
+            --gold: var(--nexus-gold);
+        }
+
+        body {
+            background-color: var(--dark);
+        }
+
+        .hero {
+            background: radial-gradient(circle at 50% 50%, #111B29 0%, #05070A 100%);
+        }
+
+        .savor-nav.scrolled {
+            background: rgba(10, 26, 48, 0.95);
+        }
+
+        .btn-primary {
+            background: var(--nexus-gold);
+        }
+
+        .btn-primary:hover {
+            background: #fff;
+        }
+
+        .logo {
+            color: #fff;
+        }
+
+        .logo span {
+            color: var(--nexus-gold);
+        }
+    </style>
+</head>
+
+<body class="loading">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <div class="demo-banner">
+        <p>Interactive Demo Version | <a href="../projects.html" data-hover>Return to Portfolio</a></p>
+    </div>
+
+    <nav class="savor-nav">
+        <div class="container">
+            <a href="#" class="logo" data-hover>NEXUS<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#expertise" data-hover>Expertise</a></li>
+                <li><a href="#chambers" data-hover>Chambers</a></li>
+                <li><a href="#consultation" class="btn-book" data-hover>Book Consultation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg-parallax"
+            style="background-image: url('nexus_hero.png'); background-size: cover; background-position: center; position: absolute; inset: 0; opacity: 0.4;">
+        </div>
+        <div class="hero-content">
+            <span class="subtitle">Excellence in Jurisprudence</span>
+            <h1 class="hero-title">Defending Your<br>Digital Legacy</h1>
+            <p class="hero-desc">Boutique legal counsel for corporate Trinidad. Specialized in intellectual property,
+                maritime law, and commercial litigation.
+            </p>
+            <div class="hero-btns">
+                <a href="#expertise" class="btn-primary" data-hover>Our Expertise</a>
+                <a href="#chambers" class="btn-play" data-hover><i class="fas fa-shield-alt"></i> Ethical Standards</a>
+            </div>
+            <div class="open-status">
+                <span class="status-dot"></span> <span class="status-text">Available for Urgent Counsel</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="expertise" class="menu-section">
+        <div class="container">
+            <div class="section-header" data-scroll>
+                <h2>Areas of Practice</h2>
+                <div class="divider"></div>
+                <p>Strategic legal solutions tailored to the Caribbean business landscape.</p>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item card-hover" data-scroll>
+                    <div class="item-badge">Tier 1</div>
+                    <div class="item-header">
+                        <h3>Corporate Law</h3>
+                    </div>
+                    <p class="description">Structure, governance, and transactional advice for growing enterprises.</p>
+                    <div class="btn-add" data-hover><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="menu-item card-hover" data-scroll>
+                    <div class="item-header">
+                        <h3>Maritime & Energy</h3>
+                    </div>
+                    <p class="description">Serving the heart of Trinidad's economy with specialized industrial counsel.
+                    </p>
+                    <div class="btn-add" data-hover><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="menu-item card-hover" data-scroll>
+                    <div class="item-header">
+                        <h3>Intellectual Property</h3>
+                    </div>
+                    <p class="description">Protecting Caribbean innovation in a global digital marketplace.</p>
+                    <div class="btn-add" data-hover><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="chambers" class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content" data-scroll>
+                    <span class="subtitle">The Chambers</span>
+                    <h2>Founded on Trust</h2>
+                    <p>At Nexus Legal, we believe that law is the foundation of progress. Our chambers provide a
+                        sanctuary for businesses seeking clarity in complex environments.</p>
+                    <p>Located in the heart of Port of Spain, we bridge the gap between traditional litigation and the
+                        modern pace of commerce.</p>
+                    <div class="signature">Senior Counsel G. Ali</div>
+                </div>
+                <div class="story-image" data-scroll>
+                    <div class="img-reveal"></div>
+                    <img src="nexus_practice.png" alt="Nexus Legal Courtroom Practice"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="consultation" class="reservation-section">
+        <div class="container relative-z">
+            <div class="reservation-box" data-scroll>
+                <h2>Private Consultation</h2>
+                <p>Schedule a confidential session with our senior partners.</p>
+                <form class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select data-hover>
+                                <option>Corporate Advice</option>
+                                <option>Litigation Review</option>
+                                <option>Contract Drafting</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" required data-hover>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary full-width" data-hover>Request Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>NEXUS.</h3>
+                    <p>Integrity. Precision. Results.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Waterfront Centre, Port of Spain</p>
+                        <p><i class="fas fa-phone"></i> +1 (868) 325-6906</p>
+                        <p class="tt-pride-badge">Proudly T&T 🇹🇹</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Nexus Legal. A <a href="../index.html" data-hover>CaribbeanCodeStudios</a> Mock Project.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="savor.js"></script>
+</body>
+
+</html>

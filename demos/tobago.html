@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tobago Luxury Villas | Private Caribbean Retreats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --tobago-teal: #2D6A4F;
+            --gold: #D4AF37;
+            --dark: #00120B;
+            --panel: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--dark);
+        }
+
+        .hero {
+            background: radial-gradient(circle at 50% 50%, #00120B 0%, #000 100%);
+        }
+
+        .savor-nav.scrolled {
+            background: rgba(0, 18, 11, 0.95);
+        }
+
+        .logo {
+            color: #fff;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+    </style>
+</head>
+
+<body class="loading">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <div class="demo-banner">
+        <p>Interactive Demo Version | <a href="../projects.html" data-hover>Return to Portfolio</a></p>
+    </div>
+
+    <nav class="savor-nav">
+        <div class="container">
+            <a href="#" class="logo" data-hover>TOBAGO<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#villas" data-hover>The Villas</a></li>
+                <li><a href="#experience" data-hover>Experience</a></li>
+                <li><a href="#reserve" class="btn-book" data-hover>Check Availability</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg-parallax"
+            style="background-image: url('tobago_hero.png'); background-size: cover; background-position: center; position: absolute; inset: 0; opacity: 0.6;">
+        </div>
+        <div class="hero-content">
+            <span class="subtitle">Paradise Redefined</span>
+            <h1 class="hero-title">Experience the<br>Ultimate Retreat</h1>
+            <p class="hero-desc">Discover curated luxury villas across Tobago's most pristine coastlines. Your private
+                sanctuary awaits.
+            </p>
+            <div class="hero-btns">
+                <a href="#villas" class="btn-primary" data-hover>Explore Villas</a>
+                <a href="#experience" class="btn-play" data-hover><i class="fas fa-umbrella-beach"></i> Villa Virtual
+                    Tour</a>
+            </div>
+            <div class="open-status">
+                <span class="status-dot"></span> <span class="status-text">Bookings Open for 2025</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="villas" class="menu-section">
+        <div class="container">
+            <div class="section-header" data-scroll>
+                <h2>Featured Sanctuary</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-image" data-scroll style="background: transparent; border: none;">
+                    <img src="tobago_mockup.png" alt="Luxury Villa Mockup"
+                        style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);">
+                </div>
+                <div class="story-content" data-scroll>
+                    <span class="subtitle">Point of View Villa</span>
+                    <h3>Cliffside Elegance</h3>
+                    <p>Perched above the Caribbean Sea, Point of View offers an unparalleled 270-degree vista of the
+                        horizon.</p>
+                    <ul style="color: #888; margin-bottom: 2rem; list-style: none;">
+                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> 5 Bedrooms / 6
+                            Bathrooms</li>
+                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Private
+                            Infinity Pool</li>
+                        <li><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Personal Chef
+                            Service</li>
+                    </ul>
+                    <a href="#" class="btn-primary" data-hover>View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reserve" class="reservation-section">
+        <div class="container relative-z">
+            <div class="reservation-box" data-scroll>
+                <h2>Secure Your Dates</h2>
+                <p>Limited availability for the upcoming peak season.</p>
+                <form class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select data-hover>
+                                <option>Point of View Villa</option>
+                                <option>The Boat House</option>
+                                <option>Hibiscus Suite</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" required data-hover>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary full-width" data-hover>Inquire Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TOBAGO.</h3>
+                    <p>Authentic Luxury. Pure Paradise.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Pigeon Point, Tobago</p>
+                        <p><i class="fas fa-phone"></i> +1 (868) 325-6906</p>
+                        <p class="tt-pride-badge">Proudly T&T 🇹🇹</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Tobago Luxury Villas. A <a href="../index.html" data-hover>CaribbeanCodeStudios</a> Mock
+                    Project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="savor.js"></script>
+</body>
+
+</html>
