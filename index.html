@@ -771,8 +771,12 @@
                 <p class="reveal">CaribbeanCodeStudios is based in Trinidad but available to the entire Caribbean.
                     Reach
                     out to us at <strong>caribbeancodestudios@gmail.com</strong> or fill out the form below.</p>
-                <form class="contact-form reveal" name="contact" method="POST" data-netlify="true">
+                <form class="contact-form reveal" name="contact" method="POST" data-netlify="true"
+                    data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="contact">
+                    <p class="hidden" style="display:none;">
+                        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                    </p>
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
