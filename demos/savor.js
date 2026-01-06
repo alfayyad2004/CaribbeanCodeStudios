@@ -1,5 +1,5 @@
 // Register GSAP Plugins
-if (typeof gsap !== 'undefined') {
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 }
 
@@ -54,67 +54,75 @@ function revealPage() {
     revealed = true;
     console.log('Revealing page...');
 
-    if (typeof gsap === 'undefined') {
-        console.error('GSAP not loaded! Skipping preloader animation.');
-        document.body.classList.add('loaded');
-        document.body.classList.remove('loading');
-        const loader = document.querySelector('.preloader');
-        if (loader) loader.style.display = 'none'; // Hide preloader if GSAP is missing
-        return;
-    }
+    try {
+        if (typeof gsap === 'undefined') {
+            console.error('GSAP not loaded! Skipping preloader animation.');
+            forceHidePreloader();
+            return;
+        }
 
-    const tl = gsap.timeline();
+        const tl = gsap.timeline();
 
-    // Check if preloader elements exist
-    const preloaderElement = document.querySelector('.preloader');
-    const loaderLine = document.querySelector('.loader-line');
-    const loaderText = document.querySelector('.loader-text');
+        // Check if preloader elements exist
+        const preloaderElement = document.querySelector('.preloader');
+        const loaderLine = document.querySelector('.loader-line');
+        const loaderText = document.querySelector('.loader-text');
 
-    if (preloaderElement && loaderLine && loaderText) {
-        tl.to(loaderLine, {
-            width: '100%',
-            duration: 0.8,
-            ease: 'power2.inOut'
-        })
-            .to(loaderText, {
-                y: -30,
-                opacity: 0,
-                duration: 0.4,
-                ease: 'power2.in'
+        if (preloaderElement && loaderLine && loaderText) {
+            tl.to(loaderLine, {
+                width: '100%',
+                duration: 0.8,
+                ease: 'power2.inOut'
             })
-            .to(preloaderElement, {
-                yPercent: -100,
-                duration: 1,
-                ease: 'expo.inOut',
-                onComplete: () => {
-                    document.body.classList.add('loaded');
-                    document.body.classList.remove('loading');
-                }
-            });
-    } else {
-        // If preloader elements are missing, just mark as loaded
-        document.body.classList.add('loaded');
-        document.body.classList.remove('loading');
-        console.warn('Preloader elements not found. Skipping preloader animation.');
-    }
+                .to(loaderText, {
+                    y: -30,
+                    opacity: 0,
+                    duration: 0.4,
+                    ease: 'power2.in'
+                })
+                .to(preloaderElement, {
+                    yPercent: -100,
+                    duration: 1,
+                    ease: 'expo.inOut',
+                    onComplete: () => {
+                        document.body.classList.add('loaded');
+                        document.body.classList.remove('loading');
+                    }
+                });
+        } else {
+            // If preloader elements are missing, just mark as loaded
+            forceHidePreloader();
+            console.warn('Preloader elements not found. Skipping preloader animation.');
+        }
 
-    // 3. Hero Animations (only if elements exist)
-    const heroContent = document.querySelector('.hero-content');
-    const scrollIndicator = document.querySelector('.scroll-indicator');
+        // 3. Hero Animations (only if elements exist)
+        const heroContent = document.querySelector('.hero-content');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
 
-    if (heroContent) {
-        tl.fromTo(heroContent,
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }
-            , preloaderElement ? "-=0.3" : 0); // Adjust position based on whether preloader ran
-    }
+        if (heroContent) {
+            tl.fromTo(heroContent,
+                { y: 50, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }
+                , preloaderElement ? "-=0.3" : 0); // Adjust position based on whether preloader ran
+        }
 
-    if (scrollIndicator) {
-        tl.fromTo(scrollIndicator,
-            { opacity: 0 },
-            { opacity: 1, duration: 0.8 }
-            , "-=0.8");
+        if (scrollIndicator) {
+            tl.fromTo(scrollIndicator,
+                { opacity: 0 },
+                { opacity: 1, duration: 0.8 }
+                , "-=0.8");
+        }
+    } catch (error) {
+        console.error('Error in revealPage:', error);
+        forceHidePreloader();
     }
+}
+
+function forceHidePreloader() {
+    document.body.classList.add('loaded');
+    document.body.classList.remove('loading');
+    const loader = document.querySelector('.preloader');
+    if (loader) loader.style.display = 'none';
 }
 
 // Trigger on load
@@ -225,13 +233,13 @@ const closeModal = document.getElementById('closeModal');
 if (bookingForm && modal) { // Ensure both form and modal exist
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        modal.classList.add('active');
+        modal.classList.add('visible');
     });
 }
 
 if (closeModal) {
     closeModal.addEventListener('click', () => {
-        modal.classList.remove('active');
+        modal.classList.remove('visible');
         bookingForm.reset();
     });
 }
