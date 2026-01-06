@@ -1372,6 +1372,17 @@ body.js-loaded .reveal.active {
     .project-image-wrapper {
         height: 220px;
     }
+
+    /* Fix hero overlap with logo/header */
+    .hero {
+        padding-top: 100px;
+        align-items: flex-start;
+        /* Better for mobile when padding is added */
+    }
+
+    .hero-content {
+        padding-top: 2rem;
+    }
 }
 
 /* --- Founder / About Page Styles (Circular & Centered) --- */
