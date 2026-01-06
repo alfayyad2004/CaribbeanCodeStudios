@@ -1,0 +1,2 @@
+# Pretty URLs: Handle stripping .html extension and ensuring canonical paths
+/*.html  /:splat  301!
