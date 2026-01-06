@@ -228,14 +228,13 @@ h3 {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     background-image: url('caribbean-code-studios-trinidad-web-design.png');
     background-size: cover;
     background-position: center;
-    overflow: hidden;
 }
 
 /* Gliding Lines Background */
@@ -1375,13 +1374,23 @@ body.js-loaded .reveal.active {
 
     /* Fix hero overlap with logo/header */
     .hero {
-        padding-top: 100px;
+        padding-top: 120px;
+        padding-bottom: 60px;
         align-items: flex-start;
-        /* Better for mobile when padding is added */
     }
 
     .hero-content {
-        padding-top: 2rem;
+        padding-top: 1rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
     }
 }
 
