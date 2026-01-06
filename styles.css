@@ -71,7 +71,8 @@ body {
 }
 
 /* Typography */
-h1 {
+h1,
+section h1 {
     font-size: 4rem;
     font-weight: 800;
     line-height: 1.1;
@@ -231,7 +232,7 @@ h3 {
     display: flex;
     align-items: center;
     position: relative;
-    background-image: url('caribbean_code_studios_hero_1766371532054.png');
+    background-image: url('caribbean-code-studios-trinidad-web-design.png');
     background-size: cover;
     background-position: center;
     overflow: hidden;
