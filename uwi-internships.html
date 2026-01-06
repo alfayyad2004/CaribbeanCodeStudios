@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <title>UWI Internship Portfolio | CaribbeanCodeStudios</title>
+    <meta name="description"
+        content="Professional portfolios for ALL UWI majors. Land your dream internship in Business, Arts, Law, or Tech with a premium website. Exclusive student pricing at TT$200.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --uwi-gold: #FCA311;
+            --uwi-glass: rgba(255, 255, 255, 0.03);
+            --uwi-glow: rgba(0, 168, 150, 0.4);
+            --uwi-gradient: linear-gradient(135deg, var(--primary), #00E5FF, var(--uwi-gold));
+        }
+
+        .uwi-hero {
+            background-image: radial-gradient(circle at top right, var(--uwi-glow), transparent), linear-gradient(to right, rgba(10, 15, 26, 0.95), rgba(10, 15, 26, 0.7)), url('caribbean-code-studios-trinidad-web-design.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 120px;
+            /* Offset for fixed header */
+        }
+
+        /* Floating elements for WOW factor */
+        .uwi-floating {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            filter: blur(100px);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 1;
+            animation: float-around 20s infinite alternate;
+        }
+
+        .uwi-floating-2 {
+            bottom: 10%;
+            right: 10%;
+            background: var(--uwi-gold);
+            animation-duration: 25s;
+        }
+
+        @keyframes float-around {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(100px, 50px) scale(1.2);
+            }
+        }
+
+        /* Shimmer effect for buttons */
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shimmer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
+            transform: rotate(45deg);
+            animation: shimmer-sweep 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer-sweep {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        .student-badge {
+            background: var(--uwi-gradient);
+            background-size: 200% auto;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 168, 150, 0.3);
+            animation: gradient-flow 5s linear infinite;
+        }
+
+        @keyframes gradient-flow {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .major-chip {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .major-chip:hover {
+            border-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 168, 150, 0.1);
+        }
+
+        .major-chip.active {
+            border-color: var(--uwi-gold);
+            color: var(--uwi-gold);
+            background: rgba(252, 163, 17, 0.05);
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                box-shadow: 0 0 0 0 rgba(252, 163, 17, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(252, 163, 17, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(252, 163, 17, 0);
+            }
+        }
+
+        .portfolio-feature-card {
+            background: var(--uwi-glass);
+            padding: 3rem 2rem;
+            border-radius: 32px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(15px);
+            position: relative;
+        }
+
+        .portfolio-feature-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .portfolio-feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 25px 50px -12px rgba(0, 168, 150, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: var(--glass);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            transition: var(--transition);
+            animation: float-icon 4s ease-in-out infinite;
+        }
+
+        @keyframes float-icon {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .portfolio-feature-card:hover .icon-box {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--primary);
+            animation: none;
+        }
+
+        .uwi-price-card {
+            background: linear-gradient(165deg, var(--surface), #0d1421);
+            border: 1px solid var(--primary);
+            position: relative;
+            box-shadow: 0 0 40px rgba(0, 168, 150, 0.1);
+            max-width: 500px;
+            animation: glow-pulse 3s infinite alternate;
+        }
+
+        @keyframes glow-pulse {
+            from {
+                border-color: var(--primary);
+                box-shadow: 0 0 20px rgba(0, 168, 150, 0.1);
+            }
+
+            to {
+                border-color: #00E5FF;
+                box-shadow: 0 0 40px rgba(0, 229, 255, 0.3);
+            }
+        }
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(0, 168, 150, 0.6);
+        }
+
+        .uwi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--uwi-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .uwi-hero {
+                padding-top: 140px;
+                text-align: center;
+                min-height: auto;
+                padding-bottom: 4rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .major-chip {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .uwi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">CaribbeanCodeStudios</a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#benefits">The Edge</a></li>
+                <li><a href="#pricing" class="btn btn-secondary">Pricing</a></li>
+                <li><a href="#contact" class="btn btn-primary btn-shimmer">Start My Site</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- UWI Hero Section -->
+        <section class="uwi-hero">
+            <div class="uwi-floating"></div>
+            <div class="uwi-floating uwi-floating-2"></div>
+
+            <div class="container hero-content">
+                <span class="student-badge reveal">UWI STUDENT CAREER BOOST</span>
+                <h1 class="hero-title reveal">
+                    Not Just a Resume.<br>
+                    <span class="text-gradient text-glow">A Career Catalyst.</span>
+                </h1>
+                <p class="hero-subtitle reveal">
+                    Whether you're in <strong>Business, Engineering, Law, or Tech</strong>, a high-end portfolio website
+                    proves you're ready for the professional world. Stand out to recruiters at Massy, local
+                    conglomerates, and global tech giants.
+                </p>
+
+                <div class="reveal mb-5">
+                    <span class="major-chip active">Computer Science</span>
+                    <span class="major-chip">Marketing & Biz</span>
+                    <span class="major-chip active">Engineering</span>
+                    <span class="major-chip">Law & Humanities</span>
+                    <span class="major-chip">Medical Sciences</span>
+                </div>
+
+                <div class="hero-btns reveal">
+                    <a href="#pricing" class="btn btn-primary btn-shimmer">Claim My Student Price</a>
+                    <a href="#benefits" class="btn btn-secondary">Why it works</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Marquee -->
+        <section class="tech-stack-banner">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <span class="tech-item">Business Case Studies</span>
+                    <span class="tech-item">Software Engineer Projects</span>
+                    <span class="tech-item">Marketing Campaigns</span>
+                    <span class="tech-item">Engineering Designs</span>
+                    <span class="tech-item">Creative Portfolios</span>
+                    <span class="tech-item">Law Moot Court Wins</span>
+                    <!-- Duplicate -->
+                    <span class="tech-item">Business Case Studies</span>
+                    <span class="tech-item">Software Engineer Projects</span>
+                    <span class="tech-item">Marketing Campaigns</span>
+                    <span class="tech-item">Engineering Designs</span>
+                    <span class="tech-item">Creative Portfolios</span>
+                    <span class="tech-item">Law Moot Court Wins</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="containerSection">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="reveal">The <span class="text-gradient">Portfolio Advantage</span></h2>
+                    <p class="reveal text-muted narrow mx-auto">Don't just tell them what you've done. Show them with a
+                        premium, world-class experience.</p>
+                </div>
+
+                <div class="uwi-grid">
+                    <div class="portfolio-feature-card reveal">
+                        <span class="benefit-tag">Dominate Recruiter Attention</span>
+                        <div class="icon-box">📊</div>
+                        <h3>For Business & Arts</h3>
+                        <p>Turn your static case studies and creative projects into interactive stories that prove your
+                            value beyond a 1-page resume.</p>
+                    </div>
+
+                    <div class="portfolio-feature-card reveal">
+                        <span class="benefit-tag">Prove Your Technicality</span>
+                        <div class="icon-box">🛠️</div>
+                        <h3>For STEM Students</h3>
+                        <p>Host your GitHub repos, CAD designs, and data analysis in an environment that reflects your
+                            high technical standard.</p>
+                    </div>
+
+                    <div class="portfolio-feature-card reveal">
+                        <span class="benefit-tag">Establish Credibility</span>
+                        <div class="icon-box">⚖️</div>
+                        <h3>For Future Pros</h3>
+                        <p>Law and Medical students can establish professional authority early with a site that
+                            highlights academic honors and research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing containerSection bg-dark-soft">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="reveal">The <span class="text-gradient">TT$200</span> Career Kickstart</h2>
+                    <p class="reveal text-muted narrow mx-auto">We're subsidizing premium portfolios for UWI students
+                        because we believe in local talent. No catch, just a sexy site.</p>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <div class="pricing-card uwi-price-card reveal">
+                        <span class="badge">Limited to UWI Students</span>
+                        <h3>Platinum Portfolio</h3>
+                        <div class="price">
+                            <span class="amount-symbol">TT$</span>
+                            <span class="amount">200</span>
+                            <span class="duration">One-time payment</span>
+                        </div>
+                        <p class="monthly-note text-glow">Valued at TT$1,500+</p>
+                        <ul class="pricing-features">
+                            <li><strong>Custom Career Strategy</strong>: We help you pick what projects to highlight.
+                            </li>
+                            <li><strong>Premium Glassmorphism Design</strong>: High-end aesthetics for that WOW factor.
+                            </li>
+                            <li><strong>Fast-Link Bio</strong>: Use it on LinkedIn, Twitter, and your Resume.</li>
+                            <li><strong>Unlimited Hosting</strong>: Pay $0 monthly, forever.</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary full-width btn-shimmer">Claim My Career Catalyst</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/Lead Gen -->
+        <section id="contact" class="contact containerSection">
+            <div class="container narrow text-center">
+                <h2 class="reveal">Ready to <span class="text-gradient">Stand Out?</span></h2>
+                <p class="reveal">Once you submit, we'll reach out to get your content and start building. Secure your
+                    spot now—we only take 5 students per week.</p>
+
+                <form class="contact-form reveal" name="uwi-pro-contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="uwi-pro-contact">
+                    <div class="form-group">
+                        <input type="text" name="full-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="UWI / Student Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="major" placeholder="Your Major (e.g., Marketing, Civil Eng, IT)"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="goal" placeholder="What is your dream company or internship?"
+                            rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width btn-shimmer">Let's Build My Future</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 CaribbeanCodeStudios. Empowering the next generation of Caribbean leaders.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
