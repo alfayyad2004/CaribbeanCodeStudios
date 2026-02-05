@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #d32f2f;
+  --primary-foreground: #ffffff;
+  --card: #f9f9f9;
+  --card-foreground: #171717;
+  --border: #e5e5e5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #050505;
+    --foreground: #ededed;
+    --primary: #ef4444; /* Brighter red for dark mode */
+    --card: #121212;
+    --card-foreground: #ededed;
+    --border: #262626;
+  }
+}
+
+/* Force dark mode aesthetic for "luxury" feel by default if desired, otherwise support system */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --font-sans: var(--font-outfit);
+}
