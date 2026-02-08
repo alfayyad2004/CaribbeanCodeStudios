@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HD Instagram Flyer | Caribbean Code Studios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00a896;
+            --primary-light: #00d2bd;
+            --bg-deep: #050505;
+            --text-white: #ffffff;
+            --text-muted: #888888;
+        }
+
+        body {
+            margin: 0;
+            padding: 80px 20px;
+            background-color: #111;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-white);
+        }
+
+        /* 1080x1080 Flyer Container */
+        .flyer {
+            width: 1080px;
+            height: 1080px;
+            background-color: var(--bg-deep);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0 50px 0;
+            box-sizing: border-box;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Abstract Background Elements */
+        .bg-gradient {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 168, 150, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(0, 168, 150, 0.1) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        .bg-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 2;
+            opacity: 0.5;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 28px;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 85px;
+            font-weight: 900;
+            line-height: 0.95;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+        }
+
+        .headline span {
+            background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price-tag {
+            background: var(--primary);
+            color: #000;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 45px;
+            font-size: 110px;
+            font-weight: 900;
+            margin: 25px 0;
+            transform: skewX(-5deg);
+            box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.3);
+            line-height: 1;
+        }
+
+        .price-tag span {
+            font-size: 32px;
+            font-weight: 800;
+            margin-right: 8px;
+            margin-top: -30px;
+            /* Offset for that classic 'stacked' currency look */
+            letter-spacing: 0;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+            align-items: center;
+        }
+
+        .feature-item {
+            font-size: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-item::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 900;
+        }
+
+        .chatbot-promo {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px dashed var(--primary);
+            padding: 20px 35px;
+            border-radius: 20px;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .chatbot-promo .icon {
+            font-size: 50px;
+        }
+
+        .chatbot-promo .text {
+            text-align: left;
+        }
+
+        .chatbot-promo .text h3 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .chatbot-promo .text p {
+            margin: 0;
+            font-size: 18px;
+            color: var(--text-white);
+        }
+
+        .footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .cta {
+            background: var(--text-white);
+            color: #000;
+            padding: 25px 80px;
+            font-size: 32px;
+            font-weight: 900;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0, 168, 150, 0.3);
+        }
+
+        .contact-info {
+            font-size: 20px;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+                border-color: var(--primary-light);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .screenshot-hint {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flyer" id="instagram-flyer">
+        <div class="bg-gradient"></div>
+        <div class="bg-lines"></div>
+
+        <div class="content">
+            <div class="logo">Caribbean Code Studios</div>
+
+            <h1 class="headline">Unlock Your <br><span>Digital Success</span></h1>
+
+            <div class="price-tag">
+                <span>TT$</span>2,500
+            </div>
+
+            <div class="features">
+                <div class="feature-item">Professional Static Design</div>
+                <div class="feature-item">Lightning Fast Hosting</div>
+                <div class="feature-item">SEO & Mobile Optimized</div>
+                <div class="feature-item">Full Website Ownership</div>
+            </div>
+
+            <div class="chatbot-promo">
+                <div class="icon">🤖</div>
+                <div class="text">
+                    <h3>FREE AI CHATBOT</h3>
+                    <p>Included with every bundle!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="cta">DM "START" TO BEGIN</div>
+            <div class="contact-info">CARIBBEANCODESTUDIOS.COM • @CARIBBEANCODESTUDIOS</div>
+        </div>
+    </div>
+
+    <div class="screenshot-hint">
+        <strong>PRO TIP:</strong> To get this in HD, open this file in your browser, zoom in if needed, and take a
+        high-quality screenshot of the square box above. This layout is perfectly sized (1080x1080) for Instagram.
+    </div>
+
+</body>
+
+</html>
