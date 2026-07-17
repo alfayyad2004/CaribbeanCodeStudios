@@ -1,14 +1,15 @@
-# CaribbeanCodeStudios (CCS)
+# CaribbeanCodeStudios
 
-> High-performance, affordable web design and development in Trinidad and Tobago. Also known as CCS or Caribbean Code Studios.
+> High-performance, affordable web design and development in Trinidad and Tobago.
 
 ## About
 CaribbeanCodeStudios specializes in modern web solutions for small businesses in T&T. We emphasize full website ownership, speed, and premium aesthetics using a modern tech stack (Netlify, Supabase, Google Gemini).
 
 ## Services
-- **Managed Static Websites**: Professional one-time builds starting at TT$2,500.
-- **Digital Care Plans**: Optional monthly support at TT$250/mo.
-- **Advanced Platforms**: Custom dynamic systems and integrated platforms (Coming Soon).
+- [Affordable Web Design Trinidad](https://caribbeancodestudios.com/affordable-web-design-trinidad): High-performance static websites starting at TT$2,500.
+- [Website Development Services](https://caribbeancodestudios.com/website-development-trinidad): Tailored responsive and interactive website builds for Trinidadian businesses.
+- [Our Projects](https://caribbeancodestudios.com/projects): Digital portfolio highlighting our real client sites: The Fuel Haus TT, Charming Choices TT, and Barberlink TT.
+- [About CaribbeanCodeStudios](https://caribbeancodestudios.com/about): Discover our mission, values, and Port of Spain based team.
 
 ## Key Differentiators
 - **One-Day Website Build**: Optimized workflows for fast delivery in Trinidad.
@@ -16,12 +17,12 @@ CaribbeanCodeStudios specializes in modern web solutions for small businesses in
 - **AI-Powered**: Utilizing Google Gemini and ChatGPT for advanced development.
 
 ## Resources
-- Blog with pricing guides and web advice for T&T businesses: https://caribbeancodestudios.com/blog
-- 2026 website cost guide for Trinidad: https://caribbeancodestudios.com/blog/how-much-does-a-website-cost-in-trinidad
-- Restaurants: website or Instagram: https://caribbeancodestudios.com/blog/restaurant-website-or-instagram-trinidad
-- Google Maps guide for T&T businesses: https://caribbeancodestudios.com/blog/how-to-get-your-business-on-google-maps-trinidad
+- [Blog](https://caribbeancodestudios.com/blog): Industry guides, web design tips, and resources for T&T companies.
+- [Trinidad Website Cost Guide](https://caribbeancodestudios.com/blog/how-much-does-a-website-cost-in-trinidad): 2026 comprehensive guide to how much a website costs in Trinidad and Tobago.
+- [Restaurant: Website or Instagram?](https://caribbeancodestudios.com/blog/restaurant-website-or-instagram-trinidad): Expert advice on digital strategy for local restaurants.
+- [Google Maps Guide](https://caribbeancodestudios.com/blog/how-to-get-your-business-on-google-maps-trinidad): How to get your business listed on Google Maps in Trinidad.
 
 ## Contact
 - Email: caribbeancodestudios@gmail.com
 - Location: Port of Spain, Trinidad & Tobago
-- Website: https://caribbeancodestudios.com
+- Website: [CaribbeanCodeStudios](https://caribbeancodestudios.com)
