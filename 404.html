@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>Page Not Found | CaribbeanCodeStudios</title>
+    <meta name="description" content="The page you are looking for does not exist or has been moved. Return to CaribbeanCodeStudios homepage.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Scoped 404 Styles -->
+    <style>
+        .error-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            padding: 80px 20px;
+        }
+        .error-container {
+            background: var(--card-bg, #151515);
+            border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.05));
+            border-radius: 16px;
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+        .error-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .error-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .error-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        @keyframes pulse-glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(0, 168, 150, 0.2);
+            }
+            50% {
+                text-shadow: 0 0 25px rgba(0, 168, 150, 0.6);
+            }
+        }
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            .error-title {
+                font-size: 1.8rem;
+            }
+            .error-container {
+                padding: 40px 20px;
+            }
+            .error-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .error-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index#hero" class="logo" title="CaribbeanCodeStudios - #1 Web Design Trinidad">CaribbeanCodeStudios</a>
+
+            <ul class="nav-links">
+                <li><a href="index#services">Services</a></li>
+                <li><a href="projects">Projects</a></li>
+                <li><a href="index#pricing">Pricing</a></li>
+                <li><a href="index#contact" class="btn btn-primary">Start Your Site</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="containerSection error-section">
+            <div class="container">
+                <div class="error-container reveal active">
+                    <h1 class="error-code text-gradient">404</h1>
+                    <h2 class="error-title">Oops! Page Not Found</h2>
+                    <p class="error-text text-muted narrow mx-auto">
+                        The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let's get you back on track!
+                    </p>
+                    <div class="error-actions">
+                        <a href="index" class="btn btn-primary">Go Back Home</a>
+                        <a href="projects" class="btn btn-secondary">View Our Work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index#hero" class="logo">CaribbeanCodeStudios</a>
+                    <p class="brand-desc">Premium web development for businesses that want results, not risks. We build
+                        fast, secure, and SEO-optimized websites that you own completely.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index#services">Services</a></li>
+                        <li><a href="projects">Projects</a></li>
+                        <li><a href="index#pricing">Pricing</a></li>
+                        <li><a href="index#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p>Based in <strong>Port of Spain, Trinidad</strong></p>
+                    <p class="tt-pride">Proudly T&T 🇹🇹</p>
+                    <p>Serving the wider Caribbean</p>
+                    <a href="mailto:caribbeancodestudios@gmail.com" class="footer-email-link">caribbeancodestudios@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
