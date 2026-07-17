@@ -22,3 +22,17 @@
   
   # Referrer Policy
   Referrer-Policy: strict-origin-when-cross-origin
+
+# Long-lived caching for static assets (images change rarely; new versions get new filenames)
+/*.webp
+  Cache-Control: public, max-age=2592000
+/*.png
+  Cache-Control: public, max-age=2592000
+/*.jpg
+  Cache-Control: public, max-age=2592000
+/favicon.ico
+  Cache-Control: public, max-age=2592000
+/styles.css
+  Cache-Control: public, max-age=86400, must-revalidate
+/main.js
+  Cache-Control: public, max-age=86400, must-revalidate

@@ -1,6 +1,6 @@
-# CaribbeanCodeStudios
+# CaribbeanCodeStudios (CCS)
 
-> High-performance, affordable web design and development in Trinidad and Tobago.
+> High-performance, affordable web design and development in Trinidad and Tobago. Also known as CCS or Caribbean Code Studios.
 
 ## About
 CaribbeanCodeStudios specializes in modern web solutions for small businesses in T&T. We emphasize full website ownership, speed, and premium aesthetics using a modern tech stack (Netlify, Supabase, Google Gemini).
@@ -14,6 +14,12 @@ CaribbeanCodeStudios specializes in modern web solutions for small businesses in
 - **One-Day Website Build**: Optimized workflows for fast delivery in Trinidad.
 - **No Lock-In**: Customers own their code and assets.
 - **AI-Powered**: Utilizing Google Gemini and ChatGPT for advanced development.
+
+## Resources
+- Blog with pricing guides and web advice for T&T businesses: https://caribbeancodestudios.com/blog
+- 2026 website cost guide for Trinidad: https://caribbeancodestudios.com/blog/how-much-does-a-website-cost-in-trinidad
+- Restaurants: website or Instagram: https://caribbeancodestudios.com/blog/restaurant-website-or-instagram-trinidad
+- Google Maps guide for T&T businesses: https://caribbeancodestudios.com/blog/how-to-get-your-business-on-google-maps-trinidad
 
 ## Contact
 - Email: caribbeancodestudios@gmail.com
